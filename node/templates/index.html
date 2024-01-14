@@ -1,0 +1,18 @@
+<!-- templates/index.html -->
+<html>
+<head><title>File List</title></head>
+<body>
+    <h1>File List</h1>
+    <ul>
+        {{range .}}
+            <li><a href="/download/{{.Name}}">{{.Name}}</a> ({{.UploadDate.Format "2006-01-02 15:04:05"}})</li>
+        {{end}}
+    </ul>
+    <form action="/upload/" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" />
+        <br />
+        <input type="submit" name="uploadType" value="single" />
+        <input type="submit" name="uploadType" value="entire" />
+    </form>
+</body>
+</html>
