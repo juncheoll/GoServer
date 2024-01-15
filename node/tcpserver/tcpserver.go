@@ -75,7 +75,8 @@ func HandleNode(conn net.Conn, remotePort string) {
 
 		// 파일 크기 수신
 		buffer = make([]byte, 1024)
-		_, err = conn.Read(buffer)
+		n, err := conn.Read(buffer)
+		fmt.Println("파일 크기의 크기 :", n)
 		if err != nil {
 			fmt.Printf("파일 크기 수신 실패:%s\n", err)
 			return

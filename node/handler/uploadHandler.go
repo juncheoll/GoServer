@@ -94,4 +94,5 @@ func EntireUploadHandler(w http.ResponseWriter, r *http.Request) {
 	tcpserver.SendFileToOtherNodes(file, header.Filename, filePath)
 
 	http.Redirect(w, r, "/", http.StatusSeeOther)
+
 }
